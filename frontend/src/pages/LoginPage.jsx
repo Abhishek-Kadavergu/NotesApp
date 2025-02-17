@@ -12,10 +12,13 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/user/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://notesapp-backend-lr9j.onrender.com/user/login",
+        {
+          email,
+          password,
+        }
+      );
       if (response.data.success) {
         login(response.data.user);
         localStorage.setItem("token", response.data.token);

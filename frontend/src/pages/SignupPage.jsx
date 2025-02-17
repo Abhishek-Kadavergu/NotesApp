@@ -11,11 +11,14 @@ function SignupPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/user/register", {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://notesapp-backend-lr9j.onrender.com/user/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
       if (response) {
         navigate("/login");
       }

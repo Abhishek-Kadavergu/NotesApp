@@ -40,11 +40,14 @@ const HomePage = () => {
   const fetchNotes = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:5000/note", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { data } = await axios.get(
+        "https://notesapp-backend-lr9j.onrender.com/note",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       console.log(data);
       setNotes(data.notes);
     } catch (error) {
@@ -56,7 +59,7 @@ const HomePage = () => {
   const addNote = async (title, body) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/note/create",
+        "https://notesapp-backend-lr9j.onrender.com/note/create",
         {
           title,
           body,
@@ -83,7 +86,7 @@ const HomePage = () => {
   const editNote = async (id, title, body) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/note/${id}`,
+        `https://notesapp-backend-lr9j.onrender.com/note/${id}`,
         {
           title,
           body,
@@ -110,11 +113,14 @@ const HomePage = () => {
 
   const deleteNode = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/note/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.delete(
+        `https://notesapp-backend-lr9j.onrender.com/note/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (response.data.success) {
       }
       fetchNotes();
