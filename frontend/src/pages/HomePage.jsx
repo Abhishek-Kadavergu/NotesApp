@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Navbar";
 import { useAuth } from "../context/ContextProvider";
 import NoteModel from "../components/NoteModel";
 import axios from "axios";
